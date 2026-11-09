@@ -1,13 +1,15 @@
 'use strict';
 
-// CONFIGURACIÓN: sustituye solo los valores vacíos con tus datos reales.
+// CONFIGURACIÓN: contactos reales y datos del proyecto pendientes de completar.
 const CONFIG = {
-  whatsapp: '', // Número internacional, solo dígitos (prefijo de país incluido).
-  email: '', // Dirección de correo real.
-  instagram: '', // URL completa: https://www.instagram.com/tu_usuario/
-  gymForceUrl: '', // URL pública real del proyecto; debe empezar por https://.
-  gymForceImage: '', // Ruta local, por ejemplo: img/gym-force.webp
-  gymForceImageAlt: '', // Describe la captura real al añadirla.
+  whatsapp: '34722892707', // Número internacional, solo dígitos (prefijo de país incluido).
+  email: 'alvaro.ruizdelope@gmail.com', // Dirección de correo real.
+  whatsappMessage:
+    '¡Hola, Álvaro! He visto tu página web y me gustaría pedirte información sobre la creación de una web para mi negocio', // Texto editable antes de enviar en WhatsApp.
+  gymForceUrl: 'https://alvaroruizdelope-svg.github.io/gymforce/', // URL pública real del proyecto; debe empezar por https://.
+  gymForceImage: 'img/gym-force.png', // Sube la captura real a esta ruta.
+  gymForceImageAlt:
+    'Captura de la portada de Gym Force, con el lema Supera tus límites y una persona entrenando con una barra.',
 };
 
 document.documentElement.classList.add('js');
@@ -49,15 +51,10 @@ matchMedia('(min-width: 901px)').addEventListener('change', () =>
 );
 document.querySelector('#year').textContent = new Date().getFullYear();
 
-function httpsUrl(value, allowedHost) {
+function httpsUrl(value) {
   try {
     const url = new URL(value);
-    return url.protocol === 'https:' &&
-      !url.username &&
-      !url.password &&
-      (!allowedHost ||
-        url.hostname === allowedHost ||
-        url.hostname === `www.${allowedHost}`)
+    return url.protocol === 'https:' && !url.username && !url.password
       ? url.href
       : '';
   } catch {
@@ -67,38 +64,26 @@ function httpsUrl(value, allowedHost) {
 const phone = CONFIG.whatsapp.trim();
 const email = CONFIG.email.trim();
 const contacts = {
-  whatsapp: /^\d{7,15}$/.test(phone) ? `https://wa.me/${phone}` : '',
+  whatsapp: /^\d{7,15}$/.test(phone)
+    ? `https://wa.me/${phone}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`
+    : '',
   email: /^[^\s@?&#]+@[^\s@?&#]+\.[^\s@?&#]+$/.test(email)
     ? `mailto:${email}`
     : '',
-  instagram: httpsUrl(CONFIG.instagram, 'instagram.com'),
 };
-const labels = {
-  whatsapp: 'WhatsApp',
-  email: 'Correo electrónico',
-  instagram: 'Instagram',
-};
-const footerContacts = document.querySelector('#footer-contacts');
-let configuredCount = 0;
 Object.entries(contacts).forEach(([type, url]) => {
-  if (!url) return;
-  configuredCount++;
   document.querySelectorAll(`[data-contact="${type}"]`).forEach((link) => {
+    if (!url) {
+      link.removeAttribute('href');
+      link.setAttribute('aria-disabled', 'true');
+      return;
+    }
     link.href = url;
     link.removeAttribute('aria-disabled');
-    link.removeAttribute('role');
+    if (link.closest('#footer-contacts') && type === 'email')
+      link.textContent = email;
   });
-  const link = document.createElement('a');
-  link.href = url;
-  link.textContent = type === 'email' ? email : labels[type];
-  footerContacts.append(link);
 });
-footerContacts.hidden = configuredCount === 0;
-const pending = document.querySelector('#contact-pending');
-if (configuredCount === 3) pending.hidden = true;
-else if (configuredCount > 0)
-  pending.textContent =
-    'Más vías de contacto estarán disponibles próximamente.';
 
 const projectUrl = httpsUrl(CONFIG.gymForceUrl);
 if (projectUrl) {
@@ -106,7 +91,9 @@ if (projectUrl) {
   link.href = projectUrl;
   link.removeAttribute('aria-disabled');
   link.removeAttribute('role');
-  document.querySelector('#gym-pending').hidden = true;
+  link.hidden = false;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
 }
 // Solo imágenes locales de img/. Si fallan, se conserva el aviso provisional.
 if (
