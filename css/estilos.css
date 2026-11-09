@@ -50,8 +50,7 @@ button:focus-visible {
   width: min(1200px, calc(100% - 96px));
   margin-inline: auto;
 }
-.accent,
-.brand-dot {
+.accent {
   color: var(--accent);
 }
 .header {
@@ -70,28 +69,35 @@ button:focus-visible {
 }
 .brand {
   display: inline-flex;
-  align-items: center;
-  font-size: 25px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  gap: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1;
+  text-decoration: none;
+}
+.brand-name {
+  color: var(--accent);
+  font-size: 28px;
+  font-weight: 800;
   letter-spacing: -1.3px;
-  font-weight: 750;
+  white-space: nowrap;
 }
-.brand-light {
+.brand-studio {
+  color: var(--text);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.48em;
+  padding-left: 2px;
+}
+.brand-tagline {
+  color: var(--muted);
+  font-size: 10px;
   font-weight: 400;
-}
-.brand-icon {
-  width: 35px;
-  height: 35px;
-  margin-right: 11px;
-  background: var(--accent);
-  color: var(--bg);
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-}
-.brand-icon span {
-  color: #536d30;
+  line-height: 1.6;
+  letter-spacing: 0.2px;
+  margin-top: 9px;
 }
 .header nav {
   display: flex;
@@ -731,9 +737,9 @@ h2 {
   color: #b3c0a2;
 }
 .monogram {
-  font-size: 190px;
+  font-size: clamp(110px, 12vw, 165px);
   line-height: 1;
-  letter-spacing: -18px;
+  letter-spacing: -14px;
   font-weight: bold;
   text-align: center;
   color: #dce9cc;
@@ -969,13 +975,11 @@ h2 {
   .header-inner {
     height: 76px;
   }
-  .brand {
-    font-size: 23px;
+  .brand-name {
+    font-size: 25px;
   }
-  .brand-icon {
-    height: 30px;
-    width: 30px;
-    font-size: 26px;
+  .brand-studio {
+    font-size: 9px;
   }
   .menu-toggle:not([hidden]) {
     display: flex;
@@ -1201,7 +1205,7 @@ h2 {
     margin: auto;
   }
   .monogram {
-    font-size: 145px;
+    font-size: 125px;
   }
   .about-copy h2 {
     font-size: 35px;

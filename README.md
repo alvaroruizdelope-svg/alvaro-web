@@ -1,6 +1,6 @@
-# Álvaro Web
+# AV CODE STUDIO
 
-Web personal estática de Álvaro, desarrollador web en formación en Valdepeñas. HTML, CSS y JavaScript sin frameworks, dependencias de ejecución ni compilación. No incluye formularios, analítica, cookies de seguimiento ni fuentes externas.
+Web estática de AV CODE STUDIO, la marca profesional de Álvaro, desarrollador web en formación en Valdepeñas. El repositorio sigue llamándose `alvaro-web`. El logotipo tipográfico en HTML y CSS utiliza «AV CODE» en verde lima y «STUDIO» debajo, con el lema en el pie; el favicon muestra las iniciales AV. HTML, CSS y JavaScript sin frameworks, dependencias de ejecución ni compilación. No incluye formularios, analítica, cookies de seguimiento ni fuentes externas.
 
 ## Archivos
 
@@ -35,7 +35,7 @@ WhatsApp está configurado con `34722892707` y un mensaje predefinido codificado
 
 ### Captura de Gym Force
 
-La ruta ya está configurada como `img/gym-force.png`, con un texto alternativo que describe la captura facilitada en el chat. **El archivo PNG no está disponible en el repositorio: súbelo a esa ruta.** Cuando exista, la imagen sustituirá automáticamente al espacio provisional, sin deformarse (ancho adaptable y altura automática). Si el archivo falla, se conserva el aviso provisional. No se han modificado Gym Force ni Aylin Shop ni se han inventado imágenes.
+La ruta ya está configurada como `img/gym-force.png`, con un texto alternativo que describe la captura facilitada en el chat. La captura real está incluida en el repositorio y se muestra en la sección de proyectos. Cuando exista, la imagen sustituirá automáticamente al espacio provisional, sin deformarse (ancho adaptable y altura automática). Si el archivo falla, se conserva el aviso provisional. No se han modificado Gym Force ni Aylin Shop ni se han inventado imágenes.
 
 ### Añadir proyectos
 
@@ -54,12 +54,12 @@ Duplica el elemento `<article class="project-card">` de la sección `#proyectos`
 
 La web está preparada para alojamiento estático. Cuando decidas publicarla desde este repositorio, selecciona el preset **None**, deja sin comando de compilación y usa la raíz del proyecto como directorio de salida (`.`). No necesitas XAMPP ni servicios de pago. Este trabajo no configura ni publica Cloudflare Pages.
 
-Antes de publicar: añade la captura del proyecto; revisa los textos y si corresponde añadir información legal según la actividad y los datos que finalmente publiques. Cuando exista una URL definitiva, podrás añadir una etiqueta canonical y `og:url` en `index.html`. No se han inventado esas URLs.
+Antes de publicar: revisa los textos y si corresponde añadir información legal según la actividad y los datos que finalmente publiques. Cuando exista una URL definitiva, podrás añadir una etiqueta canonical y `og:url` en `index.html`. No se han inventado esas URLs.
 
 ## Validación realizada
 
 Contactos verificados en Chromium a tamaños de móvil y ordenador: número de WhatsApp correcto, mensaje predefinido recuperado íntegro al decodificar la URL y correo mediante `mailto:` en contacto y pie. Comprobado que no quedan otros canales ni avisos de contacto pendiente, que el menú móvil funciona y que no hay desbordamiento horizontal entre 320 y 1440 píxeles.
 
-El archivo `img/gym-force.png` falta: comprobado el espacio provisional y, con una imagen de prueba solo en memoria, su sustitución automática sin deformación. Comprobado también que el botón de proyecto utiliza la dirección pública facilitada y abre una pestaña nueva de forma segura. El clic de «Ver proyecto» se comprobó interceptando la respuesta externa: abre la URL correcta en una pestaña nueva y `window.opener` es nulo. La disponibilidad real del sitio de Gym Force no se pudo comprobar porque la política de red del entorno bloquea su dominio (403 al establecer el túnel HTTPS). Estas pruebas no envían mensajes ni abren aplicaciones personales: la apertura final depende de que el visitante tenga acceso a WhatsApp o una aplicación de correo configurada.
+El archivo real `img/gym-force.png` está incluido: comprobada su carga y presentación sin deformación en móvil y ordenador. Comprobado también que el botón de proyecto utiliza la dirección pública facilitada y abre una pestaña nueva de forma segura. El clic de «Ver proyecto» se comprobó interceptando la respuesta externa: abre la URL correcta en una pestaña nueva y `window.opener` es nulo. La disponibilidad real del sitio de Gym Force no se pudo comprobar porque la política de red del entorno bloquea su dominio (403 al establecer el túnel HTTPS). Estas pruebas no envían mensajes ni abren aplicaciones personales: la apertura final depende de que el visitante tenga acceso a WhatsApp o una aplicación de correo configurada.
 
 Las pruebas usan un servidor estático temporal externo al proyecto. La política del Chromium de este entorno bloquea URLs `file://`; la web utiliza rutas relativas, un script clásico y ningún `fetch` o módulo que requiera servidor.
