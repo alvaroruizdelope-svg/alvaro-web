@@ -26,7 +26,7 @@ Edita el bloque `CONFIG` al principio de `js/script.js`:
 | `email`            | Tu dirección de correo real.                                                                    |
 | `whatsappMessage`  | Mensaje predefinido editable por el cliente antes de enviarlo.                                  |
 | `gymForceUrl`      | El enlace HTTPS real de la demostración Gym Force.                                              |
-| `gymForceImage`    | Ruta configurada: `img/gym-force.png`. Sube aquí la captura real.                               |
+| `gymForceImage`    | Ruta configurada: `img/gym-force.webp`, con variantes adaptables.                               |
 | `gymForceImageAlt` | Descripción breve y fiel de esa captura para lectores de pantalla.                              |
 
 WhatsApp está configurado con `34722892707` y un mensaje predefinido codificado mediante `encodeURIComponent`. WhatsApp muestra el mensaje como borrador: el visitante puede editarlo y decide si lo envía. El correo es `alvaro.ruizdelope@gmail.com`, mediante `mailto:`. Ambos contactos funcionan también sin JavaScript gracias a sus enlaces en `index.html`; si cambias los contactos en el futuro, actualiza también estos enlaces de respaldo en la sección de contacto y el pie.
@@ -35,7 +35,7 @@ WhatsApp está configurado con `34722892707` y un mensaje predefinido codificado
 
 ### Captura de Gym Force
 
-La ruta ya está configurada como `img/gym-force.png`, con un texto alternativo que describe la captura facilitada en el chat. La captura real está incluida en el repositorio y se muestra en la sección de proyectos. La imagen está en el HTML con texto alternativo, dimensiones, carga diferida y altura automática, por lo que también se muestra sin JavaScript. Si cambias la captura, actualiza tanto `CONFIG` como la ruta y las dimensiones de respaldo en `index.html`. No se han modificado Gym Force ni Aylin Shop ni se han inventado imágenes.
+La ruta visible está configurada como `img/gym-force.webp`, con un texto alternativo que describe la captura facilitada en el chat. La captura real está incluida en el repositorio y se muestra en la sección de proyectos. La imagen está en el HTML con texto alternativo, dimensiones, carga diferida y altura automática, por lo que también se muestra sin JavaScript. Si cambias la captura, actualiza `CONFIG`, las rutas, las dimensiones y las variantes `srcset` de `index.html`. Los PNG originales se conservan. Consulta [PERFORMANCE.md](PERFORMANCE.md) para los tamaños y las mediciones de rendimiento. No se han modificado Gym Force ni Aylin Shop ni se han inventado imágenes.
 
 ### Añadir proyectos
 

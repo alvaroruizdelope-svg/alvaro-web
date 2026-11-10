@@ -101,6 +101,10 @@
       }
     </script>
     <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+    <script>
+      // Evita el salto del menú móvil antes de cargar el script diferido.
+      document.documentElement.classList.add('js');
+    </script>
     <link rel="stylesheet" href="css/estilos.css" />
     <script src="js/script.js" defer></script>
   </head>
@@ -410,7 +414,9 @@
           <article class="project-card">
             <div class="project-image" id="gym-preview">
               <img
-                src="img/gym-force.png"
+                src="img/gym-force.webp"
+                srcset="img/gym-force-640.webp 640w, img/gym-force.webp 1440w"
+                sizes="(max-width: 900px) calc(100vw - 82px), 590px"
                 alt="Captura de la portada de Gym Force, proyecto de demostración de una web para un gimnasio"
                 width="1920"
                 height="1007"
@@ -463,7 +469,12 @@
       >
         <div class="about-visual">
           <img
-            src="img/alvaro-perfil.png"
+            src="img/alvaro-perfil.webp"
+            srcset="
+              img/alvaro-perfil-560.webp  560w,
+              img/alvaro-perfil.webp     1122w
+            "
+            sizes="(max-width: 470px) calc(100vw - 40px), 490px"
             alt="Retrato de Álvaro, creador de AV CODE STUDIO"
             width="1122"
             height="1402"

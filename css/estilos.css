@@ -863,9 +863,8 @@ h2 {
     transform: none;
   }
 }
-.hero-copy {
-  animation: enter 0.65s ease-out;
-}
+/* El título y el texto se muestran desde el primer renderizado.
+   La animación de entrada se conserva solo en la ilustración. */
 .hero-art {
   animation: enter 0.85s ease-out;
 }

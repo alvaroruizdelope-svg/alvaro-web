@@ -7,12 +7,11 @@ const CONFIG = {
   whatsappMessage:
     '¡Hola, Álvaro! He visto tu página web y me gustaría pedirte información sobre la creación de una web para mi negocio', // Texto editable antes de enviar en WhatsApp.
   gymForceUrl: 'https://alvaroruizdelope-svg.github.io/gymforce/', // URL pública real del proyecto; debe empezar por https://.
-  gymForceImage: 'img/gym-force.png', // Captura real incluida en el repositorio.
+  gymForceImage: 'img/gym-force.webp', // Captura real incluida en el repositorio.
   gymForceImageAlt:
     'Captura de la portada de Gym Force, proyecto de demostración de una web para un gimnasio',
 };
 
-document.documentElement.classList.add('js');
 const menuButton = document.querySelector('.menu-toggle');
 const navigation = document.querySelector('#navegacion');
 menuButton.hidden = false;
@@ -107,6 +106,9 @@ if (
 ) {
   projectImage.alt = CONFIG.gymForceImageAlt;
   if (projectImage.getAttribute('src') !== CONFIG.gymForceImage) {
+    // Una captura personalizada no debe seguir usando las variantes anteriores.
+    projectImage.removeAttribute('srcset');
+    projectImage.removeAttribute('sizes');
     projectImage.src = CONFIG.gymForceImage;
   }
 }
