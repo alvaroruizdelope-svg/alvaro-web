@@ -1,15 +1,15 @@
 'use strict';
 
-// CONFIGURACIÓN: contactos reales y datos del proyecto pendientes de completar.
+// CONFIGURACIÓN: contactos reales y datos del proyecto.
 const CONFIG = {
   whatsapp: '34722892707', // Número internacional, solo dígitos (prefijo de país incluido).
   email: 'alvaro.ruizdelope@gmail.com', // Dirección de correo real.
   whatsappMessage:
     '¡Hola, Álvaro! He visto tu página web y me gustaría pedirte información sobre la creación de una web para mi negocio', // Texto editable antes de enviar en WhatsApp.
   gymForceUrl: 'https://alvaroruizdelope-svg.github.io/gymforce/', // URL pública real del proyecto; debe empezar por https://.
-  gymForceImage: 'img/gym-force.png', // Sube la captura real a esta ruta.
+  gymForceImage: 'img/gym-force.png', // Captura real incluida en el repositorio.
   gymForceImageAlt:
-    'Captura de la portada de Gym Force, con el lema Supera tus límites y una persona entrenando con una barra.',
+    'Captura de la portada de Gym Force, proyecto de demostración de una web para un gimnasio',
 };
 
 document.documentElement.classList.add('js');
@@ -95,23 +95,20 @@ if (projectUrl) {
   link.target = '_blank';
   link.rel = 'noopener noreferrer';
 }
-// Solo imágenes locales de img/. Si fallan, se conserva el aviso provisional.
+// Conserva la imagen HTML y su carga diferida; permite configurar otra captura local.
+const projectImage = document.querySelector('#gym-preview img');
 if (
+  projectImage &&
   /^img\/[a-zA-Z0-9_./-]+\.(webp|avif|png|jpe?g)$/i.test(
     CONFIG.gymForceImage,
   ) &&
   !CONFIG.gymForceImage.includes('..') &&
   CONFIG.gymForceImageAlt.trim()
 ) {
-  const image = new Image();
-  image.alt = CONFIG.gymForceImageAlt;
-  // Carga la imagen antes de sustituir el espacio provisional.
-  image.loading = 'eager';
-  image.decoding = 'async';
-  image.addEventListener('load', () =>
-    document.querySelector('#gym-preview').replaceChildren(image),
-  );
-  image.src = CONFIG.gymForceImage;
+  projectImage.alt = CONFIG.gymForceImageAlt;
+  if (projectImage.getAttribute('src') !== CONFIG.gymForceImage) {
+    projectImage.src = CONFIG.gymForceImage;
+  }
 }
 if ('IntersectionObserver' in window) {
   const links = [...navigation.querySelectorAll('a')];

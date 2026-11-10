@@ -35,7 +35,7 @@ WhatsApp está configurado con `34722892707` y un mensaje predefinido codificado
 
 ### Captura de Gym Force
 
-La ruta ya está configurada como `img/gym-force.png`, con un texto alternativo que describe la captura facilitada en el chat. La captura real está incluida en el repositorio y se muestra en la sección de proyectos. Cuando exista, la imagen sustituirá automáticamente al espacio provisional, sin deformarse (ancho adaptable y altura automática). Si el archivo falla, se conserva el aviso provisional. No se han modificado Gym Force ni Aylin Shop ni se han inventado imágenes.
+La ruta ya está configurada como `img/gym-force.png`, con un texto alternativo que describe la captura facilitada en el chat. La captura real está incluida en el repositorio y se muestra en la sección de proyectos. La imagen está en el HTML con texto alternativo, dimensiones, carga diferida y altura automática, por lo que también se muestra sin JavaScript. Si cambias la captura, actualiza tanto `CONFIG` como la ruta y las dimensiones de respaldo en `index.html`. No se han modificado Gym Force ni Aylin Shop ni se han inventado imágenes.
 
 ### Añadir proyectos
 
@@ -50,11 +50,11 @@ Duplica el elemento `<article class="project-card">` de la sección `#proyectos`
 - Sin JavaScript, el contenido, la navegación y los contactos reales siguen disponibles.
 - Tras configurar datos, comprueba tus enlaces reales antes de compartir la web.
 
-## Cloudflare Pages (publicación posterior)
+## Cloudflare Pages
 
-La web está preparada para alojamiento estático. Cuando decidas publicarla desde este repositorio, selecciona el preset **None**, deja sin comando de compilación y usa la raíz del proyecto como directorio de salida (`.`). No necesitas XAMPP ni servicios de pago. Este trabajo no configura ni publica Cloudflare Pages.
+Dirección pública: https://alvaro-web.pages.dev/. Se sirve como web estática: preset **None**, sin comando de compilación y con la raíz del proyecto como directorio de salida (`.`). No necesitas XAMPP ni servicios de pago. Los cambios subidos a `main` pueden activar el despliegue automático si está conectado en Cloudflare Pages.
 
-Antes de publicar: revisa los textos y si corresponde añadir información legal según la actividad y los datos que finalmente publiques. Cuando exista una URL definitiva, podrás añadir una etiqueta canonical y `og:url` en `index.html`. No se han inventado esas URLs.
+La canonical, los metadatos sociales y el sitemap utilizan la URL pública anterior. Consulta [SEO.md](SEO.md) para revisar el rastreo, enviar el sitemap a Google Search Console y mantener estos archivos. Conserva `google0bf7a7e5d25fad9f.html`, el archivo de verificación de Google.
 
 ## Validación realizada
 
